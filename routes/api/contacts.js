@@ -1,9 +1,12 @@
 const express = require("express");
 
+const contacts = require("../../models/contacts.js");
+
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  res.json({ message: "Home work done!" });
+  const allContacts = await contacts.listContacts();
+  res.json(allContacts);
 });
 
 router.get("/:contactId", async (req, res, next) => {
