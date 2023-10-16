@@ -1,15 +1,15 @@
-const contacts = require("../models/contacts.js");
-const { requestError, ctrlWrapper } = require("../helpers");
+const { ctrlWrapper, requestError } = require("../helpers");
+const { Contact } = require("../models/contact");
 
 const getAll = async (req, res, next) => {
-  const result = await contacts.listContacts();
+  const result = await Contact.find({}, "-createdAt -updatedAt");
 
   res.json(result);
 };
 
 const getById = async (req, res, next) => {
   const { contactId } = req.params;
-  const result = await contacts.getById(contactId);
+  const result = await Contact.findById(contactId, "-createdAt -updatedAt");
 
   if (!result) throw requestError(404);
 
@@ -17,23 +17,36 @@ const getById = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
-  const result = await contacts.addContact(req.body);
+  const result = await Contact.create(req.body);
 
   res.status(201).json(result);
 };
 
 const deleteById = async (req, res, next) => {
   const { contactId } = req.params;
-  const result = await contacts.removeContact(contactId);
+  const result = await Contact.findByIdAndRemove(contactId);
+
+  if (!result) throw requestError(404);
+
+  res.json({ message: "Delete succes" });
+};
+
+const updateById = async (req, res, next) => {
+  const { contactId } = req.params;
+  const result = await Contact.findByIdAndUpdate(contactId, req.body, {
+    new: true,
+  });
 
   if (!result) throw requestError(404);
 
   res.json(result);
 };
 
-const updateById = async (req, res, next) => {
+const updateStatusContact = async (req, res, next) => {
   const { contactId } = req.params;
-  const result = await contacts.updateContact(contactId, req.body);
+  const result = await Contact.findByIdAndUpdate(contactId, req.body, {
+    new: true,
+  });
 
   if (!result) throw requestError(404);
 
@@ -46,4 +59,5 @@ module.exports = {
   add: ctrlWrapper(add),
   deleteById: ctrlWrapper(deleteById),
   updateById: ctrlWrapper(updateById),
+  updateStatusContact: ctrlWrapper(updateStatusContact),
 };
