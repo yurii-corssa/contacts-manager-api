@@ -2,7 +2,7 @@ const { ctrlWrapper, requestError } = require("../../helpers");
 const { User } = require("../../models/user");
 const bcrypt = require("bcrypt");
 
-const register = async (req, res, next) => {
+const register = async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });

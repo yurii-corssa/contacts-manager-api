@@ -1,7 +1,7 @@
 const { ctrlWrapper } = require("../../helpers");
 const { Contact } = require("../../models/contact");
 
-const add = async (req, res, next) => {
+const add = async (req, res) => {
   const user = req.user;
   const result = await Contact.create({ ...req.body, owner: user._id });
 

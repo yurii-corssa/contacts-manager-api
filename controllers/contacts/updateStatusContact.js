@@ -1,7 +1,7 @@
 const { requestError, ctrlWrapper } = require("../../helpers");
 const { Contact } = require("../../models/contact");
 
-const updateStatusContact = async (req, res, next) => {
+const updateStatusContact = async (req, res) => {
   const { contactId } = req.params;
   const result = await Contact.findByIdAndUpdate(contactId, req.body, {
     new: true,
