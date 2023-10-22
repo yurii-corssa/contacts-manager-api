@@ -17,7 +17,6 @@ const authenticate = async (req, res, next) => {
     if (!user || !user.token || user.token !== token) {
       return next(requestError(401));
     }
-
     req.user = user;
 
     next();
