@@ -1,7 +1,7 @@
 const { ctrlWrapper } = require("../../helpers");
 const { User } = require("../../models/user");
 
-const handleSubscription = async (req, res) => {
+const updateSubscription = async (req, res) => {
   const { _id } = req.user;
   const user = await User.findByIdAndUpdate(_id, req.body, { new: true });
 
@@ -14,6 +14,4 @@ const handleSubscription = async (req, res) => {
   });
 };
 
-module.exports = {
-  handleSubscription: ctrlWrapper(handleSubscription),
-};
+module.exports = { updateSubscription: ctrlWrapper(updateSubscription) };
