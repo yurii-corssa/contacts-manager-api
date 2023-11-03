@@ -3,6 +3,7 @@ const avatarFilter = require("./avatarFilter");
 const handleMongooseError = require("./handleMongooseError");
 const requestError = require("./requestError");
 const resizeAvatar = require("./resizeAvatar");
+const sendEmail = require("./sendEmail");
 
 module.exports = {
   requestError,
@@ -10,4 +11,5 @@ module.exports = {
   handleMongooseError,
   resizeAvatar,
   avatarFilter,
+  sendEmail,
 };
