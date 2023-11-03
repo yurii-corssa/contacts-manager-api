@@ -4,6 +4,7 @@ const handleMongooseError = require("./handleMongooseError");
 const requestError = require("./requestError");
 const resizeAvatar = require("./resizeAvatar");
 const sendEmail = require("./sendEmail");
+const createVerifyMarkup = require("./createVerifyMarkup");
 
 module.exports = {
   requestError,
@@ -12,4 +13,5 @@ module.exports = {
   resizeAvatar,
   avatarFilter,
   sendEmail,
+  createVerifyMarkup,
 };

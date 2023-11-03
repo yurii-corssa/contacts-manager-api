@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verification Email</title>
+    <style>
+      body { font-family: Arial, sans-serif; padding: 20px; background-color:
+      #f4f4f4; } .email-container { max-width: 600px; margin: auto;
+      background-color: #fff; padding: 20px; border-radius: 5px; box-shadow: 0
+      4px 8px rgba(0, 0, 0, 0.1); } h2 { color: #333; } p { color: #666;
+      line-height: 1.5; } a.verify-button { display: inline-block;
+      background-color: #3498db; color: #ffffff; padding: 10px 20px;
+      border-radius: 5px; text-decoration: none; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <h2>Welcome, {{username}}!</h2>
+      <p>Thank you for registering with us. Before we get started, we just need
+        to verify your email address.</p>
+      <p>Please click the link below to complete your verification:</p>
+      <a
+        target="_blank"
+        href="{{verificationLink}}"
+        class="verify-button"
+      >Verify Email Address</a>
+      <p>If you did not make this request, please ignore this email or contact
+        support if you have questions.</p>
+      <p>Best regards,<br />
+        Contact Keeper</p>
+    </div>
+  </body>
+</html>

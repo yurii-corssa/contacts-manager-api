@@ -30,24 +30,9 @@
 /* ---------------------------------- */
 
 const nodemailer = require("nodemailer");
-const handlebars = require("handlebars");
-const fs = require("fs");
-const path = require("path");
 
 const { ELASTICEMAIL_SMTP_KEY } = process.env;
 const EMAIL = "yurii.corssa@gmail.com";
-
-const templatePath = path.join(
-  __dirname,
-  "templates",
-  "emailTemplate.handlebars"
-);
-const source = fs.readFileSync(templatePath, "utf-8");
-const template = handlebars.compile(source);
-const emailHtml = template({
-  name: "Recipient Name",
-  senderName: "Your Company Name",
-});
 
 const nodemailerConfig = {
   host: "smtp.elasticemail.com",
