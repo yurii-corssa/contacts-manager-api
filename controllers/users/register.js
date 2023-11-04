@@ -10,8 +10,6 @@ const bcrypt = require("bcrypt");
 const gravatar = require("gravatar");
 
 const register = async (req, res) => {
-  // const { username, email, password } = req.body;
-
   const user = await User.findOne({ email: req.body.email });
   if (user) throw requestError(409, "Email in use");
 
