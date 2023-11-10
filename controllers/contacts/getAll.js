@@ -2,7 +2,7 @@ const { ctrlWrapper } = require("../../helpers");
 const { Contact } = require("../../models/contact");
 
 const getAll = async (req, res) => {
-  const { page = 1, limit = 2, favorite } = req.query;
+  const { page = 1, limit = 30, favorite } = req.query;
   const skip = (page - 1) * limit;
 
   const { _id: owner } = req.user;
@@ -15,7 +15,13 @@ const getAll = async (req, res) => {
     limit,
   });
 
-  res.json(result);
+  const contacts = result.map((contact) => {
+    const { _id: id, name, email, phone, favorite, owner } = contact;
+
+    return { id, name, email, phone, favorite, owner };
+  });
+
+  res.json(contacts);
 };
 
 module.exports = {
