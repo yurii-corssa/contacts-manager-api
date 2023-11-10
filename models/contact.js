@@ -12,6 +12,7 @@ const contatcSchema = new Schema(
     },
     email: {
       type: String,
+      default: "",
     },
     phone: {
       type: String,
@@ -34,7 +35,7 @@ contatcSchema.post("save", handleMongooseError);
 
 const addContactSchema = Joi.object({
   name: Joi.string().required(),
-  email: Joi.string().required(),
+  email: Joi.string(),
   phone: Joi.string().required(),
   favorite: Joi.boolean(),
 });

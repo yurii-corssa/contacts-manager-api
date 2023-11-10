@@ -9,7 +9,9 @@ const updateById = async (req, res) => {
 
   if (!result) throw requestError(404);
 
-  res.json(result);
+  const { _id: id, name, email, phone, favorite, owner } = result;
+
+  res.json({ id, name, email, phone, favorite, owner });
 };
 
 module.exports = {
