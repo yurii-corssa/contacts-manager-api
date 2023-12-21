@@ -53,14 +53,14 @@ npm run start:dev
 
 ### User Management
 
-POST `/api/users/register` - Register a new user
-POST `/api/users/login` - Log in a user
-POST `/api/users/logout` - Log out a user
+- POST `/api/users/register` - Register a new user
+- POST `/api/users/login` - Log in a user
+- POST `/api/users/logout` - Log out a user
 
 ### Contact Management
 
-GET `/api/contacts` - Get all contacts for the logged-in user
-POST `/api/contacts` - Create a new contact
-GET `/api/contacts/:contactId` - Get a specific contact
-PUT `/api/contacts/:contactId` - Update a specific contact
-DELETE `/api/contacts/:contactId` - Delete a specific contact
+- GET `/api/contacts` - Get all contacts for the logged-in user
+- POST `/api/contacts` - Create a new contact
+- GET `/api/contacts/:contactId` - Get a specific contact
+- PUT `/api/contacts/:contactId` - Update a specific contact
+- DELETE `/api/contacts/:contactId` - Delete a specific contact
