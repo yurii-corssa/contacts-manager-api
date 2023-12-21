@@ -1,6 +1,6 @@
 # Contacts Manager API
 
-This REST API is designed for managing contact information. It allows users to create an account, log in, and perform CRUD operations on their contacts.
+This REST API is designed for managing contact information. It allows users to create an account, log in, and perform CRUD operations on their contacts. The API is currently deployed at [https://contacts-backend-ivx4.onrender.com](https://contacts-backend-ivx4.onrender.com).
 
 ## Technologies Used
 
@@ -9,6 +9,10 @@ This REST API is designed for managing contact information. It allows users to c
 - MongoDB with Mongoose
 - JSON Web Tokens (JWT) for authentication
 - Joi for request validation
+
+## Live Deployment
+
+The API is deployed on Render and can be accessed at [https://contacts-backend-ivx4.onrender.com](https://contacts-backend-ivx4.onrender.com). Feel free to interact with the API endpoints as described below.
 
 ## Installation
 
