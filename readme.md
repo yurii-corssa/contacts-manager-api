@@ -1,31 +1,66 @@
-## GoIT Node.js Course Template Homework
+# Contacts Manager API
 
-Виконайте форк цього репозиторію для виконання домашніх завдань (2-6)
-Форк створить репозиторій на вашому http://github.com
+This REST API is designed for managing contact information. It allows users to create an account, log in, and perform CRUD operations on their contacts.
 
-Додайте ментора до колаборації
+## Technologies Used
 
-Для кожної домашньої роботи створюйте свою гілку.
+- Node.js
+- Express.js
+- MongoDB with Mongoose
+- JSON Web Tokens (JWT) for authentication
+- Joi for request validation
 
-- hw02
-- hw03
-- hw04
-- hw05
-- hw06
+## Installation
 
-Кожна нова гілка для др повинна робитися з master
+Clone the repository:
 
-Після того, як ви закінчили виконувати домашнє завдання у своїй гілці, необхідно зробити пулл-реквест (PR). Потім додати ментора для рев'ю коду. Тільки після того, як ментор заапрувить PR, ви можете виконати мердж гілки з домашнім завданням у майстер.
+```bash
+git clone https://github.com/yurii-corssa/contacts-manager-api.git
+cd contacts-manager-api
+```
 
-Уважно читайте коментарі ментора. Виправте зауваження та зробіть коміт у гілці з домашнім завданням. Зміни підтягнуться у PR автоматично після того, як ви відправите коміт з виправленнями на github
-Після виправлення знову додайте ментора на рев'ю коду.
+Install the dependencies:
 
-- При здачі домашньої роботи є посилання на PR
-- JS-код чистий та зрозумілий, для форматування використовується Prettier
+```bash
+npm install
+```
 
-### Команди:
+## Configuration
 
-- `npm start` &mdash; старт сервера в режимі production
-- `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
-- `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
-- `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+Create a `.env` file in the root directory and add the following variables:
+
+- `DB_HOST` - MongoDB connection string
+- `PORT` - Port number for the server (default: 3000)
+- `SECRET_KEY` - Secret key for JWT
+
+Refer to `.env.example` for an example configuration.
+
+## Running the Server
+
+To start the server in production mode:
+
+```bash
+npm start
+```
+
+To start the server in development mode:
+
+```bash
+npm run start:dev
+```
+
+## API Endpoints
+
+### User Management
+
+POST `/api/users/register` - Register a new user
+POST `/api/users/login` - Log in a user
+POST `/api/users/logout` - Log out a user
+
+### Contact Management
+
+GET `/api/contacts` - Get all contacts for the logged-in user
+POST `/api/contacts` - Create a new contact
+GET `/api/contacts/:contactId` - Get a specific contact
+PUT `/api/contacts/:contactId` - Update a specific contact
+DELETE `/api/contacts/:contactId` - Delete a specific contact
