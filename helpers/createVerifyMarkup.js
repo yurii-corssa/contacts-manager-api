@@ -2,7 +2,7 @@ const handlebars = require("handlebars");
 const fs = require("fs/promises");
 const path = require("path");
 
-const { BASE_URL } = process.env;
+const { LOCAL_FRONTEND_URL } = process.env;
 
 const templatePath = path.join(
   __dirname,
@@ -14,7 +14,7 @@ const createVerifyMarkup = async (username, verificationToken) => {
   const source = await fs.readFile(templatePath, "utf-8");
   const template = handlebars.compile(source);
 
-  const verificationLink = `${BASE_URL}/api/auth/verify/${verificationToken}`;
+  const verificationLink = `${LOCAL_FRONTEND_URL}/contact-keeper-app/confirmation/${verificationToken}`;
 
   const emailMarkup = template({
     username,
