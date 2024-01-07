@@ -14,7 +14,7 @@ const createVerifyMarkup = async (username, verificationToken) => {
   const source = await fs.readFile(templatePath, "utf-8");
   const template = handlebars.compile(source);
 
-  const verificationLink = `${LOCAL_FRONTEND_URL}/contact-keeper-app/confirmation/${verificationToken}`;
+  const verificationLink = `${LOCAL_FRONTEND_URL}/confirmation/verification/${verificationToken}`;
 
   const emailMarkup = template({
     username,
