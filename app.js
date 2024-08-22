@@ -19,6 +19,10 @@ app.use("/api/contacts", contactsRouter);
 app.use("/api/auth", authRouter);
 app.use("/api/users", usersRouter);
 
+app.get("/api/health", (req, res) => {
+  res.status(200).send("Server is healthy and running!");
+});
+
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
