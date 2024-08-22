@@ -21,7 +21,6 @@
     "jimp": "^0.22.10",
     "joi": "^17.11.0",
     "jsonwebtoken": "^9.0.2",
-    "mailgun.js": "^9.3.0",
     "mongodb": "^6.1.0",
     "mongoose": "^7.6.2",
     "morgan": "1.10.0",

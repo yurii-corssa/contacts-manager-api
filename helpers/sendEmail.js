@@ -1,53 +1,20 @@
-// const Mailgun = require("mailgun.js");
-// const formData = require("form-data");
-
-// const { MAILGUN_API_KEY } = process.env;
-// const DOMAIN = "sandboxf6da984a1cec4bff842768456b0805d3.mailgun.org";
-// const SENDER_EMAIL = "yurii.corssa@gmail.com";
-
-// const mailgun = new Mailgun(formData);
-// const mg = mailgun.client({
-//   username: "api",
-//   key: MAILGUN_API_KEY,
-// });
-
-// const sendEmail = async (data) => {
-//   await mg.messages
-//     .create(DOMAIN, {
-//       ...data,
-//       from: SENDER_EMAIL,
-//     })
-//     .then((message) => console.log(message))
-//     .catch((err) => console.log(err));
-// };
-
-// sendEmail({
-//   to: ["yurkaflyer@gmail.com"],
-//   subject: "Hello",
-//   html: "<h1>Testing some Mailgun awesomeness!</h1>",
-// });
-
-/* ---------------------------------- */
-
 const nodemailer = require("nodemailer");
 
-const { ELASTICEMAIL_SMTP_KEY } = process.env;
-const EMAIL = "yurii.corssa@gmail.com";
+const { SENDINBLUE_SMTP_USER, SENDINBLUE_SMTP_PASS, SENDER_EMAIL } = process.env;
 
 const nodemailerConfig = {
-  host: "smtp.elasticemail.com",
-  port: 465,
-  secure: true,
+  host: "smtp-relay.brevo.com",
+  port: 587,
   auth: {
-    user: EMAIL,
-    pass: ELASTICEMAIL_SMTP_KEY,
+    user: SENDINBLUE_SMTP_USER,
+    pass: SENDINBLUE_SMTP_PASS,
   },
 };
 
 const transporter = nodemailer.createTransport(nodemailerConfig);
 
 const sendEmail = async (data) => {
-  const email = { ...data, from: EMAIL };
+  const email = { ...data, from: SENDER_EMAIL };
   await transporter.sendMail(email, (error, info) => {
     if (error) {
       console.log(error);
@@ -58,9 +25,9 @@ const sendEmail = async (data) => {
 };
 
 // sendEmail({
-//   to: ["yurii.tsyhanok.im@gmail.com"],
-//   subject: "Greetings from Our Test Email!",
-//   html: emailHtml,
+//   to: ["exemple@gmail.com"],
+//   subject: "Test Email from Brevo",
+//   html: "<h1>Hello from Brevo!</h1>",
 // });
 
 module.exports = sendEmail;
